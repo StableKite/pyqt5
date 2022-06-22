@@ -1,6 +1,6 @@
 # This script generates the Makefiles for building PyQt5.
 #
-# Copyright (c) 2021 Riverbank Computing Limited <info@riverbankcomputing.com>
+# Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
 # 
 # This file is part of PyQt5.
 # 
@@ -28,7 +28,7 @@ import sys
 
 
 # Initialise the constants.
-PYQT_VERSION_STR = "5.15.6"
+PYQT_VERSION_STR = "5.15.7"
 SIP_MIN_VERSION = '4.19.23'
 
 
