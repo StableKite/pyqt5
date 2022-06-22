@@ -2,6 +2,7 @@ pyqt5 (5.15.7+dfsg-1) UNRELEASED; urgency=medium
 
   * New upstream release.
   * Bump python3-pyqt5.sip required version to 12.11.
+  * Update years in debian/copyright.
 
  -- Dmitry Shachnev <mitya57@debian.org>  Wed, 22 Jun 2022 13:40:38 +0300
 
