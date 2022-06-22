@@ -1,4 +1,4 @@
-pyqt5 (5.15.7+dfsg-1) UNRELEASED; urgency=medium
+pyqt5 (5.15.7+dfsg-1) unstable; urgency=medium
 
   * New upstream release.
   * Bump python3-pyqt5.sip required version to 12.11.
