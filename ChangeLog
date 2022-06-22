@@ -1,3 +1,109 @@
+2022-06-06  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, PyQt5.msp:
+	Reordered QPainter methods so that QPolygon[F] are not handled as
+	sequences.
+	[b6de090403e0] [5.15.7] <5.15-maint>
+
+2022-05-21  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, PyQt5.msp:
+	Refactored the QPainter draw methods to exploit sip.array objects.
+	[c848cf6bafc3] <5.15-maint>
+
+2022-05-17  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, lib/project.py:
+	PyQt5-sip v12.11 is now required to enable support for sip.array.
+	[fe8d991d5445] <5.15-maint>
+
+2022-05-04  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, PyQt5.msp:
+	Import the enum module in QtCore.pyi.
+	[549feba9d56e] <5.15-maint>
+
+2022-02-28  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* lib/project.py:
+	Documented why there is a need to be explicit about the name of the
+	sip module.
+	[03ca1502b93d] <5.15-maint>
+
+	* NEWS, lib/project.py:
+	There is no need to be explicit about the name of the sip module.
+	[d5644b3af8ce] <5.15-maint>
+
+2022-02-27  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, lib/project.py:
+	Be explicit abou tthe sip module name and ABI version.
+	[d3ef6180143c] <5.15-maint>
+
+2022-02-26  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, qpy/QtQml/qpyqml_listdata.cpp:
+	Fixed a bug in the tidying up of QQmlListProperty.
+	[d55d3fcf6231] <5.15-maint>
+
+2022-02-01  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, PyQt5.msp:
+	Release the GIL when calling the QThreadPool dtor.
+	[4f9a01a72de9] <5.15-maint>
+
+2022-01-27  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, qpy/pylupdate/metatranslator.cpp:
+	Fixed the corruption of HTML in translated messages by pylupdate.
+	[705c61b3620c] <5.15-maint>
+
+2021-12-11  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* qpy/QtNetwork/qpynetwork_qmap.sip:
+	Added support for the IpAddressEntry member of
+	QSsl.AlternativeNameEntryType.
+	[90f02fa83cc0] <5.15-maint>
+
+	* NEWS:
+	Fixed the NEWS file.
+	[7785974512b8] <5.15-maint>
+
+	* NEWS, qpy/QtNetwork/qpynetwork_qmap.sip:
+	Fixed the handling of the result of
+	QSslCertificate.subjectAlternativeNames().
+	[97d172d0fc09] <5.15-maint>
+
+2021-11-23  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, PyQt5.msp:
+	Various fixes to the QUrl.FormattingOptions enum. Removed a
+	redundant ctor from QFlags in .pyi files.
+	[61c0b5b29769] <5.15-maint>
+
+2021-11-18  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, PyQt5.msp:
+	Added the missing QBluetoothUuid ctors.
+	[d7fb0f074c82] <5.15-maint>
+
+2021-11-12  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, PyQt5.msp:
+	Backed out changeset 24d217336964 The annotations aren't
+	superfluous.
+	[5c0045266501] <5.15-maint>
+
+	* NEWS, PyQt5.msp:
+	Removed some superfluous /PyInt/ annotations.
+	[24d217336964] <5.15-maint>
+
+2021-10-29  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 5.15.6 for changeset 34cb760572b8
+	[aa9939ca4c8b] <5.15-maint>
+
 2021-10-24  Phil Thompson  <phil@riverbankcomputing.com>
 
 	* pyuic/uic/Compiler/qtproxies.py:

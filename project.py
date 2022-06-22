@@ -1,6 +1,6 @@
 # This is the PyQt5 build script.
 #
-# Copyright (c) 2021 Riverbank Computing Limited <info@riverbankcomputing.com>
+# Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
 # 
 # This file is part of PyQt5.
 # 
@@ -27,14 +27,20 @@ from sipbuild import (Buildable, BuildableModule, Installable, Option,
         UserException)
 
 
+# The minimum sip module ABI version needed.
+ABI_VERSION = '12.11'
+
+
 class PyQt(PyQtProject):
     """ The PyQt5 project. """
 
     def __init__(self):
         """ Initialise the project. """
 
-        super().__init__(dunder_init=True, tag_prefix='Qt',
-                console_scripts=[
+        # We specify the name of the sip module because PyQt-builder doesn't
+        # provide it if we are creating an sdist.
+        super().__init__(abi_version=ABI_VERSION, sip_module='PyQt5.sip',
+                dunder_init=True, tag_prefix='Qt', console_scripts=[
                     'pylupdate5 = PyQt5.pylupdate_main:main',
                     'pyrcc5 = PyQt5.pyrcc_main:main',
                     'pyuic5 = PyQt5.uic.pyuic:main'])
