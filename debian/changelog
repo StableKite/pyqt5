@@ -1,3 +1,13 @@
+pyqt5 (5.15.7+dfsg-1.1) unstable; urgency=medium
+
+  * Non-Maintainer Upload
+  * Modified pylupdate: set the default encoding to C when
+    locale.getdefaultlocale() returns (None, None); this allows
+    pylupdate5 to work correctly in a cowbuilder session.
+    Closes: #1021132
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sun, 02 Oct 2022 19:32:12 +0200
+
 pyqt5 (5.15.7+dfsg-1) unstable; urgency=medium
 
   * New upstream release.
