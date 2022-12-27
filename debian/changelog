@@ -1,4 +1,4 @@
-pyqt5 (5.15.7+dfsg-3) UNRELEASED; urgency=medium
+pyqt5 (5.15.7+dfsg-3) unstable; urgency=medium
 
   * Disable generation of .pyi files on mipsel to reduce memory consumption
     (closes: #1026980).
