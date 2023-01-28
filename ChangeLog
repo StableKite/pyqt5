@@ -1,3 +1,54 @@
+2023-01-22  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* lib/pyproject.toml, rb-product.toml:
+	Ensure the PyQt-Qt5 dependency is correct.
+	[f3d5a635ec21] [5.15.8] <5.15-maint>
+
+	* NEWS, PyQt5.msp:
+	Updated for new elements added in Qt v5.15 patch versions.
+	[95299cb2df3b] <5.15-maint>
+
+2022-12-13  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, PyQt5.msp:
+	Added the missing QBluetoothDeviceDiscoveryAgent.DiscoveryMethod
+	members.
+	[fdce9f658ad8] <5.15-maint>
+
+2022-10-30  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, lib/pyproject.toml:
+	SIP v6.6.2 is now a minimum requirement for the array support.
+	[bd2a905b5345] <5.15-maint>
+
+2022-10-28  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, pyuic/uic/__init__.py:
+	Fixed uic.compileUiDir() when the default system encoding is not
+	UTF8.
+	[50050fc4cd93] <5.15-maint>
+
+2022-10-10  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, PyQt5.msp:
+	Fixed QBoxLayout.insertItem() ownership bug.
+	[dd1a6abd2427] <5.15-maint>
+
+2022-09-17  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, qpy/QtCore/qpycore_qobject_helpers.cpp:
+	Fixed calling QObject::inherits() from C++ on instances that were
+	created by Python (and so was an instance of a generated derived
+	class), had it's ownership transfered to C++ and the Python object
+	garbage collected. This broke all sub-class converter code.
+	[2e3c3b71f118] <5.15-maint>
+
+2022-06-18  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 5.15.7 for changeset b6de090403e0
+	[910c4de63a6b] <5.15-maint>
+
 2022-06-06  Phil Thompson  <phil@riverbankcomputing.com>
 
 	* NEWS, PyQt5.msp:
