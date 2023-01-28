@@ -1,3 +1,9 @@
+pyqt5 (5.15.8+dfsg-1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sun, 29 Jan 2023 00:28:15 +0400
+
 pyqt5 (5.15.7+dfsg-3) unstable; urgency=medium
 
   * Disable generation of .pyi files on mipsel to reduce memory consumption
