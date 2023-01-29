@@ -3,6 +3,7 @@ pyqt5 (5.15.8+dfsg-1) UNRELEASED; urgency=medium
   * New upstream release.
   * Bump sip build-dependencies to 6.6.2, pyqt-builder to 1.14.1.
   * Update years in debian/copyright.
+  * Generate .pyi on mipsel again. The latest sip should use less memory.
 
  -- Dmitry Shachnev <mitya57@debian.org>  Sun, 29 Jan 2023 00:28:15 +0400
 
