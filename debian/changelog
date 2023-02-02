@@ -1,3 +1,11 @@
+pyqt5 (5.15.8+dfsg-2) UNRELEASED; urgency=medium
+
+  * Fix PyQt5.Qt module being empty (closes: #1030188).
+    - Bump sip build-dependencies to 6.7.6+dfsg-2.
+    - Backport upstream patch to fix the order in which modules are built.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Thu, 02 Feb 2023 13:57:27 +0400
+
 pyqt5 (5.15.8+dfsg-1) unstable; urgency=medium
 
   * New upstream release.
