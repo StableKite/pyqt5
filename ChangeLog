@@ -1,4 +1,15 @@
+2023-01-31  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, lib/project.py:
+	Fix the order in which modules are built so that the composite Qt
+	module is built after everything it depends on.
+	[c8aba8cdb7c0] [5.15.9] <5.15-maint>
+
 2023-01-22  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 5.15.8 for changeset f3d5a635ec21
+	[255d4467683f] <5.15-maint>
 
 	* lib/pyproject.toml, rb-product.toml:
 	Ensure the PyQt-Qt5 dependency is correct.

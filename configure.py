@@ -28,7 +28,7 @@ import sys
 
 
 # Initialise the constants.
-PYQT_VERSION_STR = "5.15.8"
+PYQT_VERSION_STR = "5.15.9"
 SIP_MIN_VERSION = '@MinimumSipVersion@'
 
 

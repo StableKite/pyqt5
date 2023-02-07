@@ -46,17 +46,16 @@ class PyQt(PyQtProject):
                     'pyuic5 = PyQt5.uic.pyuic:main'])
 
         # Each set of bindings must appear after any set they depend on.
-        self.bindings_factories = [Qt, QtCore, QtNetwork, QtGui, QtWidgets,
-            QtQml, QAxContainer, QtAndroidExtras, QtBluetooth, QtDBus,
-            QtDesigner, Enginio, QtHelp, QtMacExtras, QtMultimedia,
-            QtMultimediaWidgets, QtNfc, QtOpenGL, QtPositioning, QtLocation,
-            QtPrintSupport, QtQuick, QtQuick3D, QtQuickWidgets,
-            QtRemoteObjects, QtSensors, QtSerialPort, QtSql, QtSvg, QtTest,
-            QtTextToSpeech, QtWebChannel, QtWebKit, QtWebKitWidgets,
-            QtWebSockets, QtWinExtras, QtX11Extras, QtXml, QtXmlPatterns,
-            _QOpenGLFunctions_2_0, _QOpenGLFunctions_2_1,
-            _QOpenGLFunctions_4_1_Core, _QOpenGLFunctions_ES2, pylupdate,
-            pyrcc]
+        self.bindings_factories = [QtCore, QtNetwork, QtGui, QtWidgets, QtQml,
+            QAxContainer, QtAndroidExtras, QtBluetooth, QtDBus, QtDesigner,
+            Enginio, QtHelp, QtMacExtras, QtMultimedia, QtMultimediaWidgets,
+            QtNfc, QtOpenGL, QtPositioning, QtLocation, QtPrintSupport,
+            QtQuick, QtQuick3D, QtQuickWidgets, QtRemoteObjects, QtSensors,
+            QtSerialPort, QtSql, QtSvg, QtTest, QtTextToSpeech, QtWebChannel,
+            QtWebKit, QtWebKitWidgets, QtWebSockets, QtWinExtras, QtX11Extras,
+            QtXml, QtXmlPatterns, Qt, _QOpenGLFunctions_2_0,
+            _QOpenGLFunctions_2_1, _QOpenGLFunctions_4_1_Core,
+            _QOpenGLFunctions_ES2, pylupdate, pyrcc]
 
     def apply_user_defaults(self, tool):
         """ Set default values where needed. """
@@ -195,7 +194,7 @@ del find_qt
 
         # Add the composite module.
         if 'Qt' in self.bindings:
-            self._add_composite_module(tool)
+            self._add_composite_module()
 
         # Always install the uic module.
         installable = Installable('uic', target_subdir='PyQt5')
@@ -226,7 +225,7 @@ del find_qt
         if self.dbus_python:
             self._add_dbus(others_debug)
 
-    def _add_composite_module(self, tool):
+    def _add_composite_module(self):
         """ Add the bindings for the composite module. """
 
         sip_file = os.path.join(self.build_dir, 'Qt.sip')
