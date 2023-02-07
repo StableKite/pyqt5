@@ -1,3 +1,9 @@
+pyqt5 (5.15.9+dfsg-1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Tue, 07 Feb 2023 22:00:26 +0400
+
 pyqt5 (5.15.8+dfsg-2) unstable; urgency=medium
 
   * Fix PyQt5.Qt module being empty (closes: #1030188).
