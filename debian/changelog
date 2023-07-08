@@ -1,4 +1,4 @@
-pyqt5 (5.15.9+dfsg-2) UNRELEASED; urgency=medium
+pyqt5 (5.15.9+dfsg-2) unstable; urgency=medium
 
   * Add a patch to make pyrcc5 generate reproducible output
     (closes: #1024114). Thanks Chris Lamb and Timo Röhling!
