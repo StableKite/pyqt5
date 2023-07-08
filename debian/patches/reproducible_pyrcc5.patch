@@ -1,0 +1,73 @@
+From: =?utf-8?q?Timo_R=C3=B6hling?= <roehling@debian.org>
+Date: Fri, 7 Jul 2023 16:33:28 +0200
+Subject: Make pyrcc5 reproducible
+
+This patch applies the deterministic sorting with qt_hash
+to the actual data blobs, which makes the resulting _rc.py
+files bit-for-bit identical if the input data are the same.
+
+Bug-Debian: https://bugs.debian.org/1024114
+---
+ qpy/pyrcc/rcc.cpp | 28 +++++++++++++++++-----------
+ 1 file changed, 17 insertions(+), 11 deletions(-)
+
+diff --git a/qpy/pyrcc/rcc.cpp b/qpy/pyrcc/rcc.cpp
+index cb4a918..5426191 100644
+--- a/qpy/pyrcc/rcc.cpp
++++ b/qpy/pyrcc/rcc.cpp
+@@ -442,6 +442,11 @@ RCCResourceLibrary::writeHeader(FILE *out)
+     return true;
+ }
+ 
++static bool qt_rcc_compare_hash(const RCCFileInfo *left, const RCCFileInfo *right)
++{
++    return qt_hash(left->name) < qt_hash(right->name);
++}
++
+ bool
+ RCCResourceLibrary::writeDataBlobs(FILE *out)
+ {
+@@ -455,9 +460,12 @@ RCCResourceLibrary::writeDataBlobs(FILE *out)
+     qint64 offset = 0;
+     while(!pending.isEmpty()) {
+         RCCFileInfo *file = pending.pop();
+-        for(QHash<QString, RCCFileInfo*>::iterator it = file->children.begin();
+-            it != file->children.end(); ++it) {
+-            RCCFileInfo *child = it.value();
++        //sort deterministically for reproducible builds
++        QList<RCCFileInfo*> children = file->children.values();
++        qSort(children.begin(), children.end(), qt_rcc_compare_hash);
++
++        for(int i = 0; i < children.size(); ++i) {
++            RCCFileInfo *child = children.at(i);
+             if(child->flags & RCCFileInfo::Directory)
+                 pending.push(child);
+             else
+@@ -483,9 +491,12 @@ RCCResourceLibrary::writeDataNames(FILE *out)
+     qint64 offset = 0;
+     while(!pending.isEmpty()) {
+         RCCFileInfo *file = pending.pop();
+-        for(QHash<QString, RCCFileInfo*>::iterator it = file->children.begin();
+-            it != file->children.end(); ++it) {
+-            RCCFileInfo *child = it.value();
++        //sort deterministically for reproducible builds
++        QList<RCCFileInfo*> children = file->children.values();
++        qSort(children.begin(), children.end(), qt_rcc_compare_hash);
++
++        for(int i = 0; i < children.size(); ++i) {
++            RCCFileInfo *child = children.at(i);
+             if(child->flags & RCCFileInfo::Directory)
+                 pending.push(child);
+             if(names.contains(child->name)) {
+@@ -500,11 +511,6 @@ RCCResourceLibrary::writeDataNames(FILE *out)
+     return true;
+ }
+ 
+-static bool qt_rcc_compare_hash(const RCCFileInfo *left, const RCCFileInfo *right)
+-{
+-    return qt_hash(left->name) < qt_hash(right->name);
+-}
+-
+ bool RCCResourceLibrary::writeDataStructure(FILE *out, int version)
+ {
+     fprintf(out, "qt_resource_struct_v%d = b\"\\\n", version);
