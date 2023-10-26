@@ -28,7 +28,7 @@ from sipbuild import (Buildable, BuildableModule, Installable, Option,
 
 
 # The minimum sip module ABI version needed.
-ABI_VERSION = '12.11'
+ABI_VERSION = '12.13'
 
 
 class PyQt(PyQtProject):
@@ -588,7 +588,8 @@ class QtCore(PyQtBindings):
     def __init__(self, project):
         """ Initialise the bindings. """
 
-        super().__init__(project, 'QtCore', qmake_QT=['-gui'])
+        super().__init__(project, 'QtCore', qmake_QT=['-gui'],
+                define_macros=['QT_KEYPAD_NAVIGATION'])
 
     def generate(self):
         """ Generate the bindings source code and return the corresponding

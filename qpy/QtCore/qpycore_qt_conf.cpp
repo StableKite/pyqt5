@@ -95,7 +95,7 @@ bool qpycore_qt_conf()
     if (QFileInfo(qt_dir_name).exists())
     {
         // Get the prefix path with non-native separators.
-        static QByteArray qt_conf = qt_dir_name.toLocal8Bit();
+        static QByteArray qt_conf = qt_dir_name.toLatin1();
 
         qt_conf.prepend("[Paths]\nPrefix = ");
         qt_conf.append("\n");
