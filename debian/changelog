@@ -1,6 +1,7 @@
 pyqt5 (5.15.10+dfsg-1) UNRELEASED; urgency=medium
 
   * New upstream release.
+  * Drop reproducible_pyrcc5.patch, included in the new release.
 
  -- Dmitry Shachnev <mitya57@debian.org>  Thu, 26 Oct 2023 13:17:13 +0300
 
