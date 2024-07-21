@@ -1,3 +1,9 @@
+pyqt5 (5.15.11+dfsg-1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sun, 21 Jul 2024 13:59:02 +0300
+
 pyqt5 (5.15.10+dfsg-1) unstable; urgency=medium
 
   * New upstream release.
