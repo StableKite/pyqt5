@@ -2,7 +2,7 @@
 //
 // This file is part of the QtWebKitWidgets Python extension module.
 //
-// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2024 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt5.
 // 
@@ -20,7 +20,7 @@
 // WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
 
-class QWebPage : QObject
+class QWebPage : public QObject
 {
 %TypeHeaderCode
 #include <qwebpage.h>
@@ -290,7 +290,7 @@ public:
     bool isContentEditable() const;
     QMenu *createStandardContextMenu() /Factory/;
 
-    class ChooseMultipleFilesExtensionOption : QWebPage::ExtensionOption
+    class ChooseMultipleFilesExtensionOption : public QWebPage::ExtensionOption
     {
 %TypeHeaderCode
 #include <qwebpage.h>
@@ -301,7 +301,7 @@ public:
         QStringList suggestedFileNames;
     };
 
-    class ChooseMultipleFilesExtensionReturn : QWebPage::ExtensionReturn
+    class ChooseMultipleFilesExtensionReturn : public QWebPage::ExtensionReturn
     {
 %TypeHeaderCode
 #include <qwebpage.h>
@@ -329,7 +329,7 @@ public:
         WebKit,
     };
 
-    class ErrorPageExtensionOption : QWebPage::ExtensionOption
+    class ErrorPageExtensionOption : public QWebPage::ExtensionOption
     {
 %TypeHeaderCode
 #include <qwebpage.h>
@@ -343,7 +343,7 @@ public:
         QString errorString;
     };
 
-    class ErrorPageExtensionReturn : QWebPage::ExtensionReturn
+    class ErrorPageExtensionReturn : public QWebPage::ExtensionReturn
     {
 %TypeHeaderCode
 #include <qwebpage.h>

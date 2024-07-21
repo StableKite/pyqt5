@@ -2,7 +2,7 @@
 //
 // This file is part of the Enginio Python extension module.
 //
-// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2024 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt5.
 // 
@@ -22,7 +22,7 @@
 
 %If (Qt_5_3_0 -)
 
-class EnginioOAuth2Authentication : EnginioIdentity
+class EnginioOAuth2Authentication : public EnginioIdentity
 {
 %TypeHeaderCode
 #include <enginiooauth2authentication.h>
