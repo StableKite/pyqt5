@@ -2,7 +2,7 @@
 //
 // This file is part of the _QOpenGLFunctions_ES2 Python extension module.
 //
-// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2024 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt5.
 // 
@@ -22,7 +22,7 @@
 
 %If (Qt_5_1_0 -)
 
-class QOpenGLFunctions_ES2 : QAbstractOpenGLFunctions
+class QOpenGLFunctions_ES2 : public QAbstractOpenGLFunctions
 {
 %TypeHeaderCode
 #include <qopenglfunctions_es2.h>
