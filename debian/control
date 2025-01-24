@@ -16,7 +16,6 @@ Build-Depends: debhelper-compat (= 13),
                libqt5svg5-dev,
                libqt5texttospeech5-dev,
                libqt5webchannel5-dev,
-               libqt5webkit5-dev,
                libqt5websockets5-dev,
                libqt5x11extras5-dev,
                libqt5xmlpatterns5-dev,
@@ -158,18 +157,6 @@ Description: Python 3 bindings for Qt5's WebChannel module
  application) and the client (HTML/JavaScript application). The transport
  mechanism is supported out of the box by the two popular web engines, Qt
  WebKit 2 and Qt WebEngine (experimental).
- .
- This package contains the Python 3 version of this module.
-
-Package: python3-pyqt5.qtwebkit
-Architecture: any
-Depends: python3-pyqt5 (= ${binary:Version}),
-         ${misc:Depends},
-         ${python3:Depends},
-         ${shlibs:Depends}
-Description: Python 3 bindings for Qt5's WebKit module
- The WebKit module of PyQt5 provides a Web browser engine that makes it easy
- to embed HTML content into your PyQt application.
  .
  This package contains the Python 3 version of this module.
 
