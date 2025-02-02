@@ -10,14 +10,12 @@ Build-Depends: debhelper-compat (= 13),
                libglib2.0-dev,
                libjs-jquery,
                libqt5opengl5-dev,
-               libqt5remoteobjects5-dev,
                libqt5sensors5-dev,
                libqt5serialport5-dev,
                libqt5svg5-dev,
                libqt5texttospeech5-dev,
                libqt5webchannel5-dev,
                libqt5websockets5-dev,
-               libqt5x11extras5-dev,
                libqt5xmlpatterns5-dev,
                libudev-dev [linux-any],
                python-dbus-dev,
@@ -26,7 +24,6 @@ Build-Depends: debhelper-compat (= 13),
                python3-pyqtbuild (>= 1.14.1),
                python3-sipbuild (>= 6.8.6),
                qtbase5-dev (>= 5.15),
-               qtconnectivity5-dev [linux-any],
                qtdeclarative5-dev,
                qtlocation5-dev,
                qtmultimedia5-dev,
@@ -119,18 +116,6 @@ Depends: python3-pyqt5 (= ${binary:Version}),
 Description: Python 3 bindings for Qt5's OpenGL module
  The OpenGL module of PyQt5 provides widgets and utility classes
  for OpenGL rendering in a PyQt5 application.
- .
- This package contains the Python 3 version of this module.
-
-Package: python3-pyqt5.qtremoteobjects
-Architecture: any
-Depends: python3-pyqt5 (= ${binary:Version}),
-         ${misc:Depends},
-         ${python3:Depends},
-         ${shlibs:Depends}
-Description: Python 3 bindings for Qt5's RemoteObjects module
- The QtRemoteObjects module extends Qt's existing functionalities to enable
- information exchange between processes or computers.
  .
  This package contains the Python 3 version of this module.
 
@@ -256,18 +241,6 @@ Description: Python 3 bindings for QtSpeech module
  .
  This package contains the Python 3 version of this module.
 
-Package: python3-pyqt5.qtx11extras
-Architecture: any
-Depends: python3-pyqt5 (= ${binary:Version}),
-         ${misc:Depends},
-         ${python3:Depends},
-         ${shlibs:Depends}
-Description: Python 3 bindings for QtX11Extras module
- The QtX11Extras module of PyQt5 provides an API to access X11-specific
- information and classes.
- .
- This package contains the Python 3 version of this module.
-
 Package: python3-pyqt5.qtpositioning
 Architecture: any
 Depends: python3-pyqt5 (= ${binary:Version}),
@@ -277,27 +250,5 @@ Depends: python3-pyqt5 (= ${binary:Version}),
 Description: Python 3 bindings for QtPositioning module
  The QtPositioning module of PyQt5 provides an API to access location and
  positioning information.
- .
- This package contains the Python 3 version of this module.
-
-Package: python3-pyqt5.qtbluetooth
-Architecture: linux-any
-Depends: python3-pyqt5 (= ${binary:Version}),
-         ${misc:Depends},
-         ${python3:Depends},
-         ${shlibs:Depends}
-Description: Python bindings for Qt Bluetooth module
- The Qt Bluetooth API provides connectivity between Bluetooth enabled devices.
- .
- This package contains the Python 3 version of this module.
-
-Package: python3-pyqt5.qtnfc
-Architecture: linux-any
-Depends: python3-pyqt5 (= ${binary:Version}),
-         ${misc:Depends},
-         ${python3:Depends},
-         ${shlibs:Depends}
-Description: Python bindings for Qt NFC module
- The Qt NFC API provides connectivity between NFC enabled devices.
  .
  This package contains the Python 3 version of this module.
