@@ -1,4 +1,4 @@
-usr/lib/*/qt5/plugins/designer/libpyqt5.so
+usr/lib/${DEB_HOST_MULTIARCH}/qt5/plugins/designer/libpyqt5.so
 usr/lib/python3/dist-packages/PyQt5/Qt.abi3.so
 usr/lib/python3/dist-packages/PyQt5/QtCore.abi3.so
 usr/lib/python3/dist-packages/PyQt5/QtCore.pyi
