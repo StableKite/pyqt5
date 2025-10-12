@@ -1,6 +1,7 @@
 pyqt5 (5.15.11+dfsg-3) UNRELEASED; urgency=medium
 
-  * Update install files to use lowercase name for the dist-info directory.
+  * Update install files to use lowercase name for the dist-info directory
+    (closes: #1117759).
   * Add pyqt5-5.*.dist-info/licenses to debian/not-installed.
   * Use ${DEB_HOST_MULTIARCH} variable in the install files.
 
