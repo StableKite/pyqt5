@@ -4,6 +4,7 @@ pyqt5 (5.15.11+dfsg-3) UNRELEASED; urgency=medium
     (closes: #1117759).
   * Add pyqt5-5.*.dist-info/licenses to debian/not-installed.
   * Use ${DEB_HOST_MULTIARCH} variable in the install files.
+  * Build-depend on SIP 6.13.1-2, that fixed composite modules handling.
 
  -- Dmitry Shachnev <mitya57@debian.org>  Mon, 14 Jul 2025 17:39:55 +0300
 
