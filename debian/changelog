@@ -1,4 +1,4 @@
-pyqt5 (5.15.11+dfsg-3) UNRELEASED; urgency=medium
+pyqt5 (5.15.11+dfsg-3) unstable; urgency=medium
 
   * Update install files to use lowercase name for the dist-info directory
     (closes: #1117759).
@@ -6,7 +6,7 @@ pyqt5 (5.15.11+dfsg-3) UNRELEASED; urgency=medium
   * Use ${DEB_HOST_MULTIARCH} variable in the install files.
   * Build-depend on SIP 6.13.1-2, that fixed composite modules handling.
 
- -- Dmitry Shachnev <mitya57@debian.org>  Mon, 14 Jul 2025 17:39:55 +0300
+ -- Dmitry Shachnev <mitya57@debian.org>  Fri, 17 Oct 2025 12:55:25 +0300
 
 pyqt5 (5.15.11+dfsg-2) unstable; urgency=medium
 
