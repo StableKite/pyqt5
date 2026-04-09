@@ -10,13 +10,10 @@ Build-Depends: debhelper-compat (= 13),
                libglib2.0-dev,
                libjs-jquery,
                libqt5opengl5-dev,
-               libqt5sensors5-dev,
                libqt5serialport5-dev,
                libqt5svg5-dev,
-               libqt5texttospeech5-dev,
                libqt5webchannel5-dev,
                libqt5websockets5-dev,
-               libqt5xmlpatterns5-dev,
                libudev-dev [linux-any],
                python-dbus-dev,
                python3-all-dev (>= 3.3.2-5~),
@@ -157,18 +154,6 @@ Description: Python 3 bindings for Qt5's WebSockets module
  .
  This package contains the Python 3 version of this module.
 
-Package: python3-pyqt5.qtxmlpatterns
-Architecture: any
-Depends: python3-pyqt5 (= ${binary:Version}),
-         ${misc:Depends},
-         ${python3:Depends},
-         ${shlibs:Depends}
-Description: Python 3 bindings for Qt5's XmlPatterns module
- QtXmlPatterns is a XQuery and XPath engine for XML and custom data models.
- This package provides a PyQt binding for QtXmlPatterns.
- .
- This package contains the Python 3 version of this module.
-
 Package: python3-pyqt5.qtsvg
 Architecture: any
 Depends: python3-pyqt5 (= ${binary:Version}),
@@ -214,30 +199,6 @@ Depends: python3-pyqt5 (= ${binary:Version}),
 Description: Python 3 bindings for QtSerialPort module
  The QtSerialPort module of PyQt5 provides a set of APIs to use serial ports
  from PyQt applications.
- .
- This package contains the Python 3 version of this module.
-
-Package: python3-pyqt5.qtsensors
-Architecture: any
-Depends: python3-pyqt5 (= ${binary:Version}),
-         ${misc:Depends},
-         ${python3:Depends},
-         ${shlibs:Depends}
-Description: Python 3 bindings for QtSensors module
- The QtSensors module of PyQt5 provides a set of APIs to access sensors
- hardware from PyQt applications.
- .
- This package contains the Python 3 version of this module.
-
-Package: python3-pyqt5.qttexttospeech
-Architecture: any
-Depends: python3-pyqt5 (= ${binary:Version}),
-         ${misc:Depends},
-         ${python3:Depends},
-         ${shlibs:Depends}
-Description: Python 3 bindings for QtSpeech module
- The QtSpeech module of PyQt5 provides a set of APIs for text-to-speech
- in PyQt applications.
  .
  This package contains the Python 3 version of this module.
 

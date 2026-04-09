@@ -14,15 +14,12 @@ from PyQt5.QtNetwork import QLocalSocket
 from PyQt5.QtPositioning import QGeoCoordinate
 from PyQt5.QtQml import QQmlEngine
 from PyQt5.QtQuick import QQuickView
-from PyQt5.QtSensors import QSensor
 from PyQt5.QtSerialPort import QSerialPortInfo
 from PyQt5.QtSql import QSqlQuery
 from PyQt5.QtSvg import QSvgRenderer
-from PyQt5.QtTextToSpeech import QTextToSpeech
 from PyQt5.QtWebChannel import QWebChannel
 from PyQt5.QtWebSockets import QWebSocket
 from PyQt5.QtWidgets import QWidget
-from PyQt5.QtXmlPatterns import QXmlSchema
 from dbus.mainloop.pyqt5 import DBusQtMainLoop
 EOF
 
