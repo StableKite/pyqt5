@@ -18,7 +18,6 @@ from PyQt5.QtSerialPort import QSerialPortInfo
 from PyQt5.QtSql import QSqlQuery
 from PyQt5.QtSvg import QSvgRenderer
 from PyQt5.QtWebChannel import QWebChannel
-from PyQt5.QtWebSockets import QWebSocket
 from PyQt5.QtWidgets import QWidget
 from dbus.mainloop.pyqt5 import DBusQtMainLoop
 EOF
