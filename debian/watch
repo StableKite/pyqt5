@@ -1,3 +1,6 @@
-version=3
-opts=dversionmangle=s/\+dfsg//,repacksuffix=+dfsg \
-https://pypi.debian.net/PyQt5/PyQt5-([\d.]+)\.tar\.gz
+Version: 5
+
+Source: https://pypi.debian.net/PyQt5/
+Matching-Pattern: [Pp]y[Qq]t5-([\d.]+)\.tar\.gz
+Dversionmangle: s/\+dfsg//
+Repacksuffix: +dfsg
