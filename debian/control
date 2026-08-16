@@ -34,6 +34,7 @@ Vcs-Browser: https://salsa.debian.org/python-team/packages/pyqt5
 
 Package: pyqt5-dev
 Architecture: all
+Multi-Arch: foreign
 Depends: ${misc:Depends}
 Description: Development files for PyQt5
  This package contains the source SIP files from which the Python
