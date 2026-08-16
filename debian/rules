@@ -38,7 +38,7 @@ SHARED_CONFIGURE_OPTIONS=--confirm-license --verbose \
 
 
 %:
-	dh $@ --with python3
+	dh $@
 
 override_dh_auto_configure-arch: $(ALLPYTHONS:%=build-%/configure-stamp)
 
