@@ -1,3 +1,14 @@
+pyqt5 (5.15.11+dfsg-5) unstable; urgency=medium
+
+  * Team upload
+  * Rewrite d/watch in v5 format
+  * Apply multi-arch hints.  + pyqt5-dev: Add Multi-Arch: foreign.
+  * Add debian/salsa-ci.yml
+  * Use dh-sequence-python3
+  * Bump Standards-Version to 4.7.4, drop Priority: tag
+
+ -- Alexandre Detiste <tchet@debian.org>  Sun, 16 Aug 2026 08:43:18 +0200
+
 pyqt5 (5.15.11+dfsg-4) unstable; urgency=medium
 
   * Team upload
