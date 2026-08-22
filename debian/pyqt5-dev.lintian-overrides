@@ -1,0 +1,2 @@
+# It is not really a Python package, but rather a set of .sip files.
+pyqt5-dev: python-package-missing-depends-on-python

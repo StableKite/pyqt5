@@ -4,6 +4,7 @@ pyqt5 (5.15.11+dfsg-6) UNRELEASED; urgency=medium
   * Update extension suffixes for SIP 6.16.1.
   * Update to debhelper compat level 14.
     - Remove explicit ${*:Depends} declarations.
+  * Override ‘pyqt5-dev: python-package-missing-depends-on-python’ error.
 
  -- Dmitry Shachnev <mitya57@debian.org>  Sun, 23 Aug 2026 00:50:39 +0300
 
