@@ -7,9 +7,29 @@ version targeted will be v3.13).
 
 (cherry picked from commit 3aa6092c44cd17a3afcd9f8ca879c4e40d2662d1)
 ---
+ project.py                      |  8 ++++++++
  qpy/QtCore/qpycore_pyqtslot.cpp | 44 +++++++++++++++++++++++++++++++----------
- 1 file changed, 34 insertions(+), 10 deletions(-)
+ 2 files changed, 42 insertions(+), 10 deletions(-)
 
+diff --git a/project.py b/project.py
+index be57e4f..9443c3a 100644
+--- a/project.py
++++ b/project.py
+@@ -107,6 +107,14 @@ del find_qt
+ 
+         return dunder_init
+ 
++    def get_limited_abi_version(self):
++        """ Return the version number of the limited ABI to use. """
++
++        # We use PyWeakref_GetObject() which was removed from the limited API
++        # in Python v3.15.  It's replacement, PyWeakref_GetRef() was added to
++        # the limited ABI in Python v3.13.
++        return (3, 13, 0) if sys.hexversion >= 0x030f0000 else None
++
+     def get_options(self):
+         """ Return the sequence of configurable options. """
+ 
 diff --git a/qpy/QtCore/qpycore_pyqtslot.cpp b/qpy/QtCore/qpycore_pyqtslot.cpp
 index 26f4022..22a7d0c 100644
 --- a/qpy/QtCore/qpycore_pyqtslot.cpp
