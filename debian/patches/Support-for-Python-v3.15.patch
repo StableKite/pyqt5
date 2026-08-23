@@ -12,10 +12,10 @@ version targeted will be v3.13).
  2 files changed, 42 insertions(+), 10 deletions(-)
 
 diff --git a/project.py b/project.py
-index be57e4f..9443c3a 100644
+index 9a3721f..f2143ac 100644
 --- a/project.py
 +++ b/project.py
-@@ -107,6 +107,14 @@ del find_qt
+@@ -111,6 +111,14 @@ del find_qt
  
          return dunder_init
  
