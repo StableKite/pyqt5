@@ -7,9 +7,11 @@ version targeted will be v3.13).
 
 (cherry picked from commit 3aa6092c44cd17a3afcd9f8ca879c4e40d2662d1)
 ---
- project.py                      |  8 ++++++++
- qpy/QtCore/qpycore_pyqtslot.cpp | 44 +++++++++++++++++++++++++++++++----------
- 2 files changed, 42 insertions(+), 10 deletions(-)
+ project.py                             |  8 +++++++
+ qpy/QtCore/qpycore_pyqtproperty.cpp    |  2 +-
+ qpy/QtCore/qpycore_pyqtslot.cpp        | 44 ++++++++++++++++++++++++++--------
+ qpy/QtCore/qpycore_qobject_helpers.cpp | 11 +++++----
+ 4 files changed, 49 insertions(+), 16 deletions(-)
 
 diff --git a/project.py b/project.py
 index 9a3721f..f2143ac 100644
@@ -30,6 +32,19 @@ index 9a3721f..f2143ac 100644
      def get_options(self):
          """ Return the sequence of configurable options. """
  
+diff --git a/qpy/QtCore/qpycore_pyqtproperty.cpp b/qpy/QtCore/qpycore_pyqtproperty.cpp
+index d173d51..0245134 100644
+--- a/qpy/QtCore/qpycore_pyqtproperty.cpp
++++ b/qpy/QtCore/qpycore_pyqtproperty.cpp
+@@ -575,7 +575,7 @@ static PyObject *pyqtProperty_reset(PyObject *self, PyObject *reset)
+ static qpycore_pyqtProperty *clone(qpycore_pyqtProperty *orig)
+ {
+     qpycore_pyqtProperty *pp = (qpycore_pyqtProperty *)PyType_GenericNew(
+-            Py_TYPE(orig), 0, 0);
++            Py_TYPE((PyObject *)orig), 0, 0);
+ 
+     if (pp)
+     {
 diff --git a/qpy/QtCore/qpycore_pyqtslot.cpp b/qpy/QtCore/qpycore_pyqtslot.cpp
 index 26f4022..22a7d0c 100644
 --- a/qpy/QtCore/qpycore_pyqtslot.cpp
@@ -124,3 +139,43 @@ index 26f4022..22a7d0c 100644
  }
  
  
+diff --git a/qpy/QtCore/qpycore_qobject_helpers.cpp b/qpy/QtCore/qpycore_qobject_helpers.cpp
+index f72105c..7b756ec 100644
+--- a/qpy/QtCore/qpycore_qobject_helpers.cpp
++++ b/qpy/QtCore/qpycore_qobject_helpers.cpp
+@@ -50,7 +50,7 @@ static int qt_metacall_worker(sipSimpleWrapper *pySelf, PyTypeObject *pytype,
+ const QMetaObject *qpycore_qobject_metaobject(sipSimpleWrapper *pySelf,
+         sipTypeDef *base)
+ {
+-    sipWrapperType *wt = (pySelf ? (sipWrapperType *)Py_TYPE(pySelf) : 0);
++    sipWrapperType *wt = (pySelf ? (sipWrapperType *)Py_TYPE((PyObject *)pySelf) : 0);
+ 
+     return qpycore_get_qmetaobject(wt, base);
+ }
+@@ -64,7 +64,8 @@ int qpycore_qobject_qt_metacall(sipSimpleWrapper *pySelf, sipTypeDef *base,
+     if (!pySelf)
+         return -1;
+ 
+-    return qt_metacall_worker(pySelf, Py_TYPE(pySelf), base, _c, _id, _a);
++    return qt_metacall_worker(pySelf, Py_TYPE((PyObject *)pySelf), base, _c,
++            _id, _a);
+ }
+ 
+ 
+@@ -236,13 +237,13 @@ bool qpycore_qobject_qt_metacast(sipSimpleWrapper *pySelf,
+ 
+     // We only need to look at the MRO if the object is a wrapped type (rather
+     // than a user sub-class).
+-    if (base_pytype != Py_TYPE(pySelf))
++    if (base_pytype != Py_TYPE((PyObject *)pySelf))
+     {
+         PyObject *mro;
+ 
+ #if PY_VERSION_HEX >= 0x03040000
+-        mro = PyObject_GetAttr((PyObject *)Py_TYPE(pySelf),
+-                qpycore_dunder_mro);
++        mro = PyObject_GetAttr(
++                (PyObject *)Py_TYPE((PyObject *)pySelf), qpycore_dunder_mro);
+         Q_ASSERT(mro);
+ #else
+         mro = Py_TYPE(pySelf)->tp_mro;
