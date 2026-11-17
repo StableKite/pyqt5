@@ -1,2 +1,3 @@
 getdefaultlocale.patch
 Support-for-Python-v3.15.patch
+dbus-full-api-on-free-threaded-python.patch

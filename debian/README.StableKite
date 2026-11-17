@@ -1,0 +1,13 @@
+This is a compatibility branch for Ubuntu pyqt5 5.15.11+dfsg-6.
+
+Canonical packaging: https://salsa.debian.org/python-team/packages/pyqt5.git
+Base: debian/5.15.11+dfsg-6. The additional Python 3.15 changes from Debian
+5.15.11+dfsg-7 are backported with their original authorship.
+
+The additional quilt patch keeps the D-Bus helper enabled and selects the full
+Python C API on a free-threaded interpreter. It preserves the normal limited
+API build and does not mark the hand-written module as GIL-independent.
+debian/tests/dbus-abi covers the generated buildable for both configurations.
+
+SBI discovers this opt-in branch from its exact Debian source/version metadata.
+The branch is rolling; no dependency commit is pinned in SBI.

@@ -1,0 +1,42 @@
+#!/usr/bin/python3
+"""Check the real D-Bus buildable's ABI choice without building all of Qt."""
+import ast
+import glob
+import os
+from pathlib import Path
+import subprocess
+import sysconfig
+import tempfile
+from types import SimpleNamespace
+import unittest
+from unittest.mock import patch
+
+from sipbuild import BuildableModule
+
+ROOT = Path(__file__).resolve().parents[2]
+tree = ast.parse((ROOT / 'project.py').read_text())
+project = next(node for node in tree.body if isinstance(node, ast.ClassDef) and node.name == 'PyQt')
+method = next(node for node in project.body if isinstance(node, ast.FunctionDef) and node.name == '_add_dbus')
+namespace = dict(glob=glob, os=os, sysconfig=sysconfig, BuildableModule=BuildableModule)
+exec(compile(ast.Module(body=[method], type_ignores=[]), str(ROOT / 'project.py'), 'exec'), namespace)
+
+
+class DBusABI(unittest.TestCase):
+    def test_target_abi(self):
+        for disabled in (None, 0, 1):
+            with self.subTest(Py_GIL_DISABLED=disabled), tempfile.TemporaryDirectory() as directory:
+                target = SimpleNamespace(root_dir=str(ROOT), build_dir=directory,
+                    sip_module='PyQt5.sip', limited_abi_version=(3, 13, 0),
+                    dbus=None, buildables=[], progress=lambda message: None,
+                    read_command_pipe=lambda args, fatal: subprocess.check_output(args, text=True).splitlines())
+                with patch.object(sysconfig, 'get_config_var', return_value=disabled):
+                    namespace['_add_dbus'](target, False)
+                self.assertEqual(len(target.buildables), 1, 'D-Bus support must remain enabled')
+                buildable = target.buildables[0]
+                self.assertEqual(buildable.uses_limited_api, not bool(disabled))
+                self.assertEqual('Py_LIMITED_API=0x030d0000' in buildable.define_macros, not bool(disabled))
+                self.assertFalse(buildable.gil_disabled, 'Do not claim new GIL safety for the helper')
+
+
+if __name__ == '__main__':
+    unittest.main()

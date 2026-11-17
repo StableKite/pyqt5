@@ -1,0 +1,22 @@
+Description: Use the full C API for the D-Bus helper on free-threaded Python
+ The helper requests the legacy stable ABI (3.13 on Python 3.15). That ABI
+ cannot be used with the free-threaded headers. Keep the D-Bus integration
+ enabled and compile it for the active interpreter using the full C API.
+ This does not declare the hand-written helper to be safe without the GIL.
+Author: StableKite
+Forwarded: no
+Last-Update: 2026-11-17
+
+--- a/project.py
++++ b/project.py
+@@ -23,3 +23,4 @@
+ import sys
+-
++import sysconfig
++
+ from pyqtbuild import PyQtBindings, PyQtProject, QmakeTargetInstallable
+@@ -303,3 +304,3 @@
+         buildable = BuildableModule(self, 'dbus', 'dbus.mainloop.pyqt5',
+-                uses_limited_api=True)
++                uses_limited_api=not sysconfig.get_config_var('Py_GIL_DISABLED'))
+         buildable.builder_settings.append('QT -= gui')

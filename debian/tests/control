@@ -1,2 +1,5 @@
 Tests: import
 Depends: python3-all-dbg, @
+
+Tests: dbus-abi
+Depends: python3, python3-sipbuild, python3-pyqtbuild, python3-dbus, python-dbus-dev, libdbus-1-dev, pkg-config
