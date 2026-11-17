@@ -1,7 +1,7 @@
 usr/lib/${DEB_HOST_MULTIARCH}/qt5/plugins/PyQt5/libpyqt5qmlplugin.so
-usr/lib/python3/dist-packages/PyQt5/QtQml.abi3-${DEB_HOST_MULTIARCH}.so
+usr/lib/python3/dist-packages/PyQt5/QtQml.*-${DEB_HOST_MULTIARCH}.so
 usr/lib/python3/dist-packages/PyQt5/QtQml.pyi
-usr/lib/python3/dist-packages/PyQt5/QtQuick.abi3-${DEB_HOST_MULTIARCH}.so
+usr/lib/python3/dist-packages/PyQt5/QtQuick.*-${DEB_HOST_MULTIARCH}.so
 usr/lib/python3/dist-packages/PyQt5/QtQuick.pyi
-usr/lib/python3/dist-packages/PyQt5/QtQuickWidgets.abi3-${DEB_HOST_MULTIARCH}.so
+usr/lib/python3/dist-packages/PyQt5/QtQuickWidgets.*-${DEB_HOST_MULTIARCH}.so
 usr/lib/python3/dist-packages/PyQt5/QtQuickWidgets.pyi

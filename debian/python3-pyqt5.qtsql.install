@@ -1,2 +1,2 @@
-usr/lib/python3/dist-packages/PyQt5/QtSql.abi3-${DEB_HOST_MULTIARCH}.so
+usr/lib/python3/dist-packages/PyQt5/QtSql.*-${DEB_HOST_MULTIARCH}.so
 usr/lib/python3/dist-packages/PyQt5/QtSql.pyi

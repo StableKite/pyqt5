@@ -1,2 +1,2 @@
-usr/lib/python3/dist-packages/PyQt5/*OpenGL*.abi3-${DEB_HOST_MULTIARCH}.so
+usr/lib/python3/dist-packages/PyQt5/*OpenGL*.*-${DEB_HOST_MULTIARCH}.so
 usr/lib/python3/dist-packages/PyQt5/*OpenGL*.pyi

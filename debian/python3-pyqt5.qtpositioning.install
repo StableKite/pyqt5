@@ -1,4 +1,4 @@
-usr/lib/python3/dist-packages/PyQt5/QtLocation.abi3-${DEB_HOST_MULTIARCH}.so
+usr/lib/python3/dist-packages/PyQt5/QtLocation.*-${DEB_HOST_MULTIARCH}.so
 usr/lib/python3/dist-packages/PyQt5/QtLocation.pyi
-usr/lib/python3/dist-packages/PyQt5/QtPositioning.abi3-${DEB_HOST_MULTIARCH}.so
+usr/lib/python3/dist-packages/PyQt5/QtPositioning.*-${DEB_HOST_MULTIARCH}.so
 usr/lib/python3/dist-packages/PyQt5/QtPositioning.pyi

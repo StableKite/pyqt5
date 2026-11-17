@@ -16,3 +16,8 @@ composite legacy bindings, retaining modern abi3t behavior in SIP itself.
 
 SBI discovers this opt-in branch from its exact Debian source/version metadata.
 The branch is rolling; no dependency commit is pinned in SBI.
+
+Extension install manifests accept the ABI tag selected by SIP (abi3, abi3t,
+or the interpreter-specific cpython tag). Module names, package ownership and
+the target multiarch suffix remain constrained. dh_install/dh_missing checks
+remain enabled; extension files are not renamed or retagged.
