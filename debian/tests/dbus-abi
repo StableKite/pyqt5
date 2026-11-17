@@ -4,6 +4,7 @@ import ast
 import glob
 import os
 from pathlib import Path
+import shlex
 import subprocess
 import sysconfig
 import tempfile
@@ -28,7 +29,7 @@ class DBusABI(unittest.TestCase):
                 target = SimpleNamespace(root_dir=str(ROOT), build_dir=directory,
                     sip_module='PyQt5.sip', limited_abi_version=(3, 13, 0),
                     dbus=None, buildables=[], progress=lambda message: None,
-                    read_command_pipe=lambda args, fatal: subprocess.check_output(args, text=True).splitlines())
+                    read_command_pipe=lambda args, fatal: subprocess.check_output(shlex.split(' '.join(args)), text=True).splitlines())
                 with patch.object(sysconfig, 'get_config_var', return_value=disabled):
                     namespace['_add_dbus'](target, False)
                 self.assertEqual(len(target.buildables), 1, 'D-Bus support must remain enabled')
