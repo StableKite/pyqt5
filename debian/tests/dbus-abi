@@ -12,7 +12,7 @@ from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 
-from sipbuild import BuildableModule
+from sipbuild import BuildableBindings, BuildableModule
 
 ROOT = Path(__file__).resolve().parents[2]
 tree = ast.parse((ROOT / 'project.py').read_text())
@@ -23,6 +23,19 @@ exec(compile(ast.Module(body=[method], type_ignores=[]), str(ROOT / 'project.py'
 
 
 class DBusABI(unittest.TestCase):
+    def test_generated_legacy_bindings(self):
+        for disabled in (0, 1):
+            for gil_disabled in (False, True):
+                with self.subTest(target=disabled, gil=gil_disabled), tempfile.TemporaryDirectory() as directory:
+                    target = SimpleNamespace(build_dir=directory, sip_module='PyQt5.sip',
+                        limited_abi_version=(3, 13, 0), py_platform='linux')
+                    bindings = SimpleNamespace(project=target)
+                    with patch.object(sysconfig, 'get_config_var', return_value=disabled):
+                        buildable = BuildableBindings(bindings, 'PyQt5.QtCore',
+                            uses_limited_api=True, gil_disabled=gil_disabled)
+                    self.assertEqual(buildable.uses_limited_api, not bool(disabled))
+                    self.assertEqual(buildable.gil_disabled, gil_disabled)
+
     def test_target_abi(self):
         for disabled in (None, 0, 1):
             with self.subTest(Py_GIL_DISABLED=disabled), tempfile.TemporaryDirectory() as directory:

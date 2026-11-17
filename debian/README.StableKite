@@ -9,5 +9,10 @@ Python C API on a free-threaded interpreter. It preserves the normal limited
 API build and does not mark the hand-written module as GIL-independent.
 debian/tests/dbus-abi covers the generated buildable for both configurations.
 
+Generated bindings also require the generic SIP legacy-ABI correction from the
+StableKite/sip branch codex/ubuntu-ft/6.16.1-2. SBI discovers that dependency by
+its Debian source/version metadata. The same regression checks normal and
+composite legacy bindings, retaining modern abi3t behavior in SIP itself.
+
 SBI discovers this opt-in branch from its exact Debian source/version metadata.
 The branch is rolling; no dependency commit is pinned in SBI.
