@@ -207,24 +207,20 @@ protected:
         
         if (result != NULL)
         {
-            PyObject *buf;
-        
-            sipParseResult(&sipIsErr, sipMethod, result, "O", &buf);
-        
-            if (buf == Py_None)
+            if (result == Py_None)
                 sipRes = -1L;
-            else if (!SIPBytes_Check(buf))
+            else if (!PyBytes_Check(result) || PyBytes_GET_SIZE(result) > a1)
             {
                 sipBadCatcherResult(sipMethod);
                 sipIsErr = 1;
             }
             else
             {
-                memcpy(a0, SIPBytes_AsString(buf), SIPBytes_Size(buf));
-                sipRes = SIPBytes_Size(buf);
+                const Py_ssize_t size = PyBytes_GET_SIZE(result);
+                memcpy(a0, PyBytes_AS_STRING(result), static_cast<size_t>(size));
+                sipRes = size;
             }
-        
-            Py_DECREF(buf);
+
             Py_DECREF(result);
         }
 %End
@@ -272,24 +268,20 @@ protected:
         
         if (result != NULL)
         {
-            PyObject *buf;
-        
-            sipParseResult(&sipIsErr, sipMethod, result, "O", &buf);
-        
-            if (buf == Py_None)
+            if (result == Py_None)
                 sipRes = -1L;
-            else if (!SIPBytes_Check(buf))
+            else if (!PyBytes_Check(result) || PyBytes_GET_SIZE(result) > a1)
             {
                 sipBadCatcherResult(sipMethod);
                 sipIsErr = 1;
             }
             else
             {
-                memcpy(a0, SIPBytes_AsString(buf), SIPBytes_Size(buf));
-                sipRes = SIPBytes_Size(buf);
+                const Py_ssize_t size = PyBytes_GET_SIZE(result);
+                memcpy(a0, PyBytes_AS_STRING(result), static_cast<size_t>(size));
+                sipRes = size;
             }
-        
-            Py_DECREF(buf);
+
             Py_DECREF(result);
         }
 %End
