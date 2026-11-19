@@ -446,7 +446,14 @@ callable.
 %End
 
 %MethodCode
+#if SIP_ABI_MAJOR_VERSION >= 14
+        const auto configure = [sipSelf](PyObject *args, PyObject *kwargs) {
+            return qpycore_pyqtconfigure(sipSelf, args, kwargs);
+        };
+        return qpycore_call_legacy_parser(configure, sipArgs, sipNrArgs, sipKwdNames);
+#else
         return qpycore_pyqtconfigure(sipSelf, sipArgs, sipKwds);
+#endif
 %End
 
     SIP_PYOBJECT __getattr__(const char *name /Encoding="UTF-8"/) const /NoTypeHint/;
@@ -709,7 +716,11 @@ result is type of the value returned by the slot.
 %End
 
 %MethodCode
+#if SIP_ABI_MAJOR_VERSION >= 14
+    return qpycore_call_legacy_parser(qpycore_pyqtslot, sipArgs, sipNrArgs, sipKwdNames);
+#else
     return qpycore_pyqtslot(sipArgs, sipKwds);
+#endif
 %End
 
 %If (Qt_5_3_0 -)
@@ -745,6 +756,9 @@ private:
 
 %ModuleHeaderCode
 #include "qpycore_api.h"
+#if SIP_ABI_MAJOR_VERSION >= 14
+#include "qpycore_vectorcall.h"
+#endif
 %End
 
 %ModuleCode
