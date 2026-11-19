@@ -32,8 +32,12 @@ const char *PYQT_VERSION_STR;
 static int PYQT_VERSION = 0x050f0b;
 static const char *PYQT_VERSION_STR = "5.15.11";
 %End
-const int QT_VERSION;
-const char *QT_VERSION_STR;
+const int qpycore_QtVersion /PyName=QT_VERSION/;
+const char *qpycore_QtVersionString /PyName=QT_VERSION_STR/;
+%ModuleCode
+static const int qpycore_QtVersion = QT_VERSION;
+static const char *qpycore_QtVersionString = QT_VERSION_STR;
+%End
 typedef signed char qint8 /PyInt/;
 typedef unsigned char quint8 /PyInt/;
 typedef short qint16;
