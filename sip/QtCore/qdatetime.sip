@@ -86,7 +86,7 @@ public:
         }
 %End
 
-    long __hash__() const;
+    qpycore_PythonHash __hash__() const;
 %MethodCode
         sipRes = qHash(sipCpp->toString(Qt::ISODate));
 %End
@@ -297,7 +297,7 @@ public:
         }
 %End
 
-    long __hash__() const;
+    qpycore_PythonHash __hash__() const;
 %MethodCode
         sipRes = qHash(sipCpp->toString(Qt::ISODate));
 %End
@@ -484,7 +484,7 @@ public:
         }
 %End
 
-    long __hash__() const;
+    qpycore_PythonHash __hash__() const;
 %MethodCode
         sipRes = qHash(sipCpp->toString(Qt::ISODate));
 %End

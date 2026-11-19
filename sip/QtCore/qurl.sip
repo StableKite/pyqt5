@@ -76,7 +76,7 @@ public:
         sipRes = (sipCpp->operator int() != 0);
 %End
 
-    long __hash__() const;
+    qpycore_PythonHash __hash__() const;
 %MethodCode
         sipRes = sipCpp->operator int();
 %End
@@ -125,7 +125,7 @@ public:
     QUrl(const QString &url, QUrl::ParsingMode mode = QUrl::TolerantMode);
     QUrl(const QUrl &copy);
     ~QUrl();
-    long __hash__() const;
+    qpycore_PythonHash __hash__() const;
 %MethodCode
         sipRes = qHash(*sipCpp);
 %End

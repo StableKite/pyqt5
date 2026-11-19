@@ -54,7 +54,7 @@ public:
     static QVersionNumber commonPrefix(const QVersionNumber &v1, const QVersionNumber &v2);
     QString toString() const;
     static QVersionNumber fromString(const QString &string, int *suffixIndex = 0);
-    long __hash__() const;
+    qpycore_PythonHash __hash__() const;
 %MethodCode
         sipRes = qHash(*sipCpp);
 %End

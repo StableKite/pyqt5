@@ -602,6 +602,12 @@ class QtCore(PyQtBindings):
 
         project = self.project
 
+        abi_version = project.abi_version
+        abi_major = (int(abi_version.split('.')[0]) if isinstance(abi_version, str)
+                else abi_version[0])
+        if abi_major < 14:
+            self.disabled_features.append('PyQt_Abi14')
+
         # The embedded flags.
         sip_flags = ['-n', project.sip_module]
 

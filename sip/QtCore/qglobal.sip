@@ -38,6 +38,23 @@ const char *qpycore_QtVersionString /PyName=QT_VERSION_STR/;
 static const int qpycore_QtVersion = QT_VERSION;
 static const char *qpycore_QtVersionString = QT_VERSION_STR;
 %End
+
+%Feature PyQt_Abi14
+%If (!PyQt_Abi14)
+typedef long qpycore_PythonHash;
+%End
+%If (PyQt_Abi14)
+typedef Py_hash_t qpycore_PythonHash;
+%End
+
+%ModuleHeaderCode
+#if SIP_ABI_MAJOR_VERSION >= 14
+using qpycore_PythonHash = Py_hash_t;
+#else
+using qpycore_PythonHash = long;
+#endif
+%End
+
 typedef signed char qint8 /PyInt/;
 typedef unsigned char quint8 /PyInt/;
 typedef short qint16;
@@ -121,7 +138,7 @@ public:
         sipRes = (sipCpp->operator QFlags::Int() != 0);
 %End
 
-    long __hash__() const;
+    qpycore_PythonHash __hash__() const;
 %MethodCode
         sipRes = sipCpp->operator QFlags::Int();
 %End

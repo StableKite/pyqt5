@@ -69,7 +69,7 @@ public:
 %End
 
     bool at(int i) const;
-    long __hash__() const;
+    qpycore_PythonHash __hash__() const;
 %MethodCode
         sipRes = qHash(*sipCpp);
 %End

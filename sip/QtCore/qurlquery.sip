@@ -55,7 +55,7 @@ public:
     static QChar defaultQueryValueDelimiter();
     static QChar defaultQueryPairDelimiter();
 %If (Qt_5_6_0 -)
-    long __hash__() const;
+    qpycore_PythonHash __hash__() const;
 %MethodCode
         sipRes = qHash(*sipCpp);
 %End

@@ -1443,7 +1443,7 @@ public:
     QString quoteString(const QString &str, QLocale::QuotationStyle style = QLocale::StandardQuotation) const;
     QString createSeparatedList(const QStringList &list) const;
 %If (Qt_5_6_0 -)
-    long __hash__() const;
+    qpycore_PythonHash __hash__() const;
 %MethodCode
         sipRes = qHash(*sipCpp);
 %End

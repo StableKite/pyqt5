@@ -331,7 +331,7 @@ public:
         sipRes = bool(sipCpp->contains(*a0));
 %End
 
-    long __hash__() const;
+    qpycore_PythonHash __hash__() const;
 %MethodCode
         sipRes = qHash(*sipCpp);
 %End
@@ -511,7 +511,7 @@ public:
             sipRes = sipCpp->operator bool();
 %End
 
-        long __hash__() const;
+        qpycore_PythonHash __hash__() const;
 %MethodCode
             sipRes = qHash(*sipCpp);
 %End

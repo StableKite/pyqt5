@@ -64,7 +64,7 @@ public:
     bool operator==(const QModelIndex &other) const;
     bool operator<(const QModelIndex &other) const;
     bool operator!=(const QModelIndex &other) const;
-    long __hash__() const;
+    qpycore_PythonHash __hash__() const;
 %MethodCode
         sipRes = qHash(*sipCpp);
 %End
@@ -97,7 +97,7 @@ public:
     bool operator==(const QModelIndex &other) const;
     bool operator!=(const QPersistentModelIndex &other) const;
     bool operator!=(const QModelIndex &other) const;
-    long __hash__() const;
+    qpycore_PythonHash __hash__() const;
 %MethodCode
         sipRes = qHash(*sipCpp);
 %End

@@ -61,7 +61,7 @@ public:
     QUuid(uint l, ushort w1, ushort w2, uchar b1 /PyInt/, uchar b2 /PyInt/, uchar b3 /PyInt/, uchar b4 /PyInt/, uchar b5 /PyInt/, uchar b6 /PyInt/, uchar b7 /PyInt/, uchar b8 /PyInt/);
     QUuid(const QString &);
     QUuid(const QByteArray &);
-    long __hash__() const;
+    qpycore_PythonHash __hash__() const;
 %MethodCode
         sipRes = qHash(*sipCpp);
 %End

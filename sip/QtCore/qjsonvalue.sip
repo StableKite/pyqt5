@@ -86,7 +86,7 @@ public:
     const QJsonValue operator[](int i) const;
 %End
 %If (Qt_5_12_0 -)
-    long __hash__() const;
+    qpycore_PythonHash __hash__() const;
 %MethodCode
         sipRes = qHash(*sipCpp);
 %End

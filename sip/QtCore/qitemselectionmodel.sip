@@ -49,7 +49,7 @@ public:
     bool isValid() const;
     QModelIndexList indexes() const;
     QItemSelectionRange intersected(const QItemSelectionRange &other) const;
-    long __hash__() const;
+    qpycore_PythonHash __hash__() const;
 %MethodCode
         sipRes = qHash(*sipCpp);
 %End
